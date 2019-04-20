@@ -79,24 +79,41 @@ namespace ToDoListWithDBAndADO.TaskApp
         //    }
 
         //}
-        //public void Update(Users us, int usersId)
-        //{
-        //    string updateQuery = @"UPDATE [Table] SET Name = @name,LastName=@lastname,Solary=@solary Where Id = '" + usersId + "'";
-        //    using (SqlConnection connection = new SqlConnection(conectionString))
-        //    {
-        //        using (SqlCommand command = new SqlCommand(updateQuery, connection))
-        //        {
-
-        //            connection.Open();
-
-        //            command.Parameters.Add(new SqlParameter("Name", us.Name));
-        //            command.Parameters.Add(new SqlParameter("LastName", us.Lastname));
-        //            command.Parameters.Add(new SqlParameter("Solary", us.Solary));
-        //            command.ExecuteNonQuery();
-        //            connection.Close();
-        //        }
-        //    }
-        //}
+        /// <summary>
+        /// Update DB Tasks in Id. 
+        /// </summary>
+        public void Update(int usersId,MyTask taskDesc)
+        {
+            string updateQuery = @"UPDATE [Task] SET TaskDescription=@TaskDescription,IsComletid=@IsComletid Where Id = '" + usersId + "'";
+            using (SqlConnection connection = new SqlConnection(conectionString))
+            {
+                using (SqlCommand command = new SqlCommand(updateQuery, connection))
+                {
+                    connection.Open();
+                    command.Parameters.Add(new SqlParameter("TaskDescription", taskDesc.Mywork));
+                    command.Parameters.Add(new SqlParameter("IsComletid", taskDesc.Isdone));
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+        }
+        /// <summary>
+        /// Update DB Tasks in TaskDescription . 
+        /// </summary>
+        public void Update(string taskDescript)
+        {
+            string updateQuery = @"UPDATE [Task] SET IsComletid=@IsComletid Where TaskDescription = '" + taskDescript + "'";
+            using (SqlConnection connection = new SqlConnection(conectionString))
+            {
+                using (SqlCommand command = new SqlCommand(updateQuery, connection))
+                {
+                    connection.Open();                    
+                    command.Parameters.Add(new SqlParameter("IsComletid", true));
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+        }
         //public void Delete(int id)
         //{
         //    string deleteQuery = @"DELETE FROM [Table] WHERE Id='" + id + "'";

@@ -13,27 +13,25 @@ namespace ToDoListWithDBAndADO.TaskApp
 {
     public partial class TaskForToDoList : Form
     {
+        DBforToDoList db = new DBforToDoList();
         public TaskForToDoList()
         {
             InitializeComponent();
-        }
-
-       
+        }      
 
         private void ButtonAddTask_Click(object sender, EventArgs e)
         {
-            MyToDoList my = new MyToDoList();
-            
+                 
             checkedListBoxTask.Items.Add(textBoxTaskDescription.Text);
-            DBforToDoList db = new DBforToDoList();
-            db.ConString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ToDoListDatas;Integrated Security=true;  ";
+            
+            db.ConString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ToDoListDatas;Integrated Security=true;";
             db.Insert(new MyTask(textBoxTaskDescription.Text));
         }
 
         private void checkedListBoxTask_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-           
-            
+       {
+            string myTask= checkedListBoxTask.SelectedItem.ToString();
+            db.Update(myTask);
         }
     }
 }

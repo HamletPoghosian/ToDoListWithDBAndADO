@@ -43,5 +43,9 @@ namespace ToDoList.Lib
         {
             return Mywork + "\t" + Isdone;
         }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
