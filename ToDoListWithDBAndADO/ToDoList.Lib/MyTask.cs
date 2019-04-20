@@ -10,7 +10,7 @@ namespace ToDoList.Lib
     {
         private string mywork;
         private bool isdone;
-
+        private int id;
 
         public MyTask()
         {
@@ -32,16 +32,16 @@ namespace ToDoList.Lib
             get => isdone;
             set => isdone = value;
         }
+        public int Id { get => id; set => id = value; }
 
-
-        public override bool Equals(object obj)
-        {
-            return this.ToString() == ((MyTask)obj).ToString();
-        }
+        //public override bool Equals(object obj)
+        //{
+        //    return this.ToString() == ((MyTask)obj).ToString();
+        //}
 
         public override string ToString()
         {
-            return Mywork + "\t" + Isdone;
+            return Id+"\t"+Mywork + "\t" + Isdone;
         }
         public override int GetHashCode()
         {

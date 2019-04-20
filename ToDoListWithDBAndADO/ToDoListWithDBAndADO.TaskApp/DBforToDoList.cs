@@ -50,35 +50,33 @@ namespace ToDoListWithDBAndADO.TaskApp
                 }
             }
         }
-        //public List<Users> Select(Users us)
-        //{
-        //    using (SqlConnection connection = new SqlConnection(conectionString))
-        //    {
-        //        List<Users> users = new List<Users>();
-        //        string selectQuery = @"SELECT Id, Name, LastName, Solary FROM[Table]";
-        //        connection.Open();
-        //        using (SqlCommand command = new SqlCommand(selectQuery, connection))
-        //        {
-        //            SqlDataReader reader = command.ExecuteReader();
+        /// <summary>
+        /// Select DB All Tasks . 
+        /// </summary>
+        public List<MyTask> Select()
+        {
+            MyTask taskValue;
+            using (SqlConnection connection = new SqlConnection(conectionString))
+            {
+                List<MyTask> tasks = new List<MyTask>();
+                string selectQuery = @"SELECT Id, TaskDescription, IsComletid FROM[Task]";
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(selectQuery, connection))
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        taskValue = new MyTask();
+                        taskValue.Id = int.Parse(reader[0].ToString());
+                        taskValue.Mywork = reader[1].ToString();
+                        taskValue.Isdone =Boolean.Parse(reader[2].ToString());
+                        tasks.Add(taskValue);
+                    }
+                }
+                return tasks;
+            }
 
-        //            while (reader.Read())
-        //            {
-        //                us = new Users();
-        //                us.Id = int.Parse(reader[0].ToString());
-        //                us.Name = reader[1].ToString();
-        //                us.Lastname = reader[2].ToString();
-        //                us.Solary = int.Parse(reader[3].ToString());
-        //                users.Add(us);
-        //            }
-
-
-
-
-        //        }
-        //        return users;
-        //    }
-
-        //}
+        }
         /// <summary>
         /// Update DB Tasks in Id. 
         /// </summary>
