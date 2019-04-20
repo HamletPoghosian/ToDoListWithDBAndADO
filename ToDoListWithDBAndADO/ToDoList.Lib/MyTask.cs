@@ -8,10 +8,12 @@ namespace ToDoList.Lib
 {
     public class MyTask
     {
+        #region Private fields
         private string mywork;
         private bool isdone;
         private int id;
-
+        #endregion
+        #region CtorMyTaskClass
         public MyTask()
         {
 
@@ -22,6 +24,8 @@ namespace ToDoList.Lib
             Isdone = b;
 
         }
+        #endregion
+        #region PropertyMyTaskClass
         public string Mywork
         {
             get => mywork;
@@ -33,12 +37,7 @@ namespace ToDoList.Lib
             set => isdone = value;
         }
         public int Id { get => id; set => id = value; }
-
-        //public override bool Equals(object obj)
-        //{
-        //    return this.ToString() == ((MyTask)obj).ToString();
-        //}
-
+        #endregion
         public override string ToString()
         {
             return Id+"\t"+Mywork + "\t" + Isdone;

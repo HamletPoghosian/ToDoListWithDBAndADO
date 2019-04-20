@@ -10,6 +10,7 @@ namespace ToDoListWithDBAndADO.TaskApp
 {
     public class DBforToDoList
     {
+        #region DBforToDoList property
         private string conectionString = string.Empty;
         public string ConString
         {
@@ -30,6 +31,8 @@ namespace ToDoListWithDBAndADO.TaskApp
         {
             ConString = constring;
         }
+        #endregion 
+        #region DBforToDoList Insert
         /// <summary>
         /// Insert DB Tasks. 
         /// </summary>
@@ -50,6 +53,8 @@ namespace ToDoListWithDBAndADO.TaskApp
                 }
             }
         }
+        #endregion
+        #region DBforToDoList SelectMethods
         /// <summary>
         /// Select DB All Tasks . 
         /// </summary>
@@ -77,6 +82,8 @@ namespace ToDoListWithDBAndADO.TaskApp
             }
 
         }
+        #endregion
+        #region DBforToDoList UpdateMethods
         /// <summary>
         /// Update DB Tasks in Id. 
         /// </summary>
@@ -112,6 +119,11 @@ namespace ToDoListWithDBAndADO.TaskApp
                 }
             }
         }
+        #endregion
+        #region DBforToDoList DeleteMethods
+        /// <summary>
+        /// Delete DB All Tasks  . 
+        /// </summary>
         public void Delete()
         {
             string deleteQuery = @"DELETE FROM [Task] ";
@@ -126,5 +138,6 @@ namespace ToDoListWithDBAndADO.TaskApp
                 }
             }
         }
+        #endregion
     }
 }

@@ -18,7 +18,7 @@ namespace ToDoListWithDBAndADO.TaskApp
         {
             InitializeComponent();
         }
-
+        #region AddButton InsertDBAddValue
         private void ButtonAddTask_Click(object sender, EventArgs e)
         {
 
@@ -27,26 +27,16 @@ namespace ToDoListWithDBAndADO.TaskApp
             db.Insert(new MyTask(textBoxTaskDescription.Text));
             textBoxTaskDescription.Text = string.Empty;
         }
-
+        #endregion
+        #region UpdateChechkd Value 
         private void checkedListBoxTask_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             string myTask = checkedListBoxTask.SelectedItem.ToString();
             textBoxTaskDescription.Text = myTask;
             db.Update(myTask);
         }
-
-        private void buttonSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-
-        }
-
+        #endregion
+        #region ComboBoxSearch ComboBoxSearchEvent
         private void comboBox1_TextChanged(object sender, EventArgs e)
         {
             string searchBy = comboBox1.SelectedItem.ToString();
@@ -83,7 +73,8 @@ namespace ToDoListWithDBAndADO.TaskApp
                     }
             }
         }
-
+        #endregion
+        #region ComboBoxDelete ComboBoxDeleteEvent
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             string searchBy = comboBox2.SelectedItem.ToString();
@@ -116,5 +107,6 @@ namespace ToDoListWithDBAndADO.TaskApp
                     }
             }
         }
+        #endregion
     }
 }
