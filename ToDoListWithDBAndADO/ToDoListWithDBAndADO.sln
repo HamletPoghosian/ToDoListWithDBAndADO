@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListWithDBAndADO.TaskApp", "ToDoListWithDBAndADO.TaskApp\ToDoListWithDBAndADO.TaskApp.csproj", "{AF306A1E-0745-4813-92A4-A364C6143BDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Lib", "ToDoList.Lib\ToDoList.Lib.csproj", "{45F34FA8-415A-4D42-82E0-897B36F10F36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AF306A1E-0745-4813-92A4-A364C6143BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF306A1E-0745-4813-92A4-A364C6143BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF306A1E-0745-4813-92A4-A364C6143BDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45F34FA8-415A-4D42-82E0-897B36F10F36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45F34FA8-415A-4D42-82E0-897B36F10F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45F34FA8-415A-4D42-82E0-897B36F10F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45F34FA8-415A-4D42-82E0-897B36F10F36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
