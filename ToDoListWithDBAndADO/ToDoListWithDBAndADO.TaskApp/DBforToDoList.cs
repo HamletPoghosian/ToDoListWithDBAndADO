@@ -112,19 +112,19 @@ namespace ToDoListWithDBAndADO.TaskApp
                 }
             }
         }
-        //public void Delete(int id)
-        //{
-        //    string deleteQuery = @"DELETE FROM [Table] WHERE Id='" + id + "'";
-        //    using (SqlConnection connection = new SqlConnection(conectionString))
-        //    {
+        public void Delete()
+        {
+            string deleteQuery = @"DELETE FROM [Task] ";
+            using (SqlConnection connection = new SqlConnection(conectionString))
+            {
 
-        //        using (SqlCommand command = new SqlCommand(deleteQuery, connection))
-        //        {
-        //            connection.Open();
-        //            command.ExecuteNonQuery();
-        //            connection.Close();
-        //        }
-        //    }
-        //}
+                using (SqlCommand command = new SqlCommand(deleteQuery, connection))
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+        }
     }
 }

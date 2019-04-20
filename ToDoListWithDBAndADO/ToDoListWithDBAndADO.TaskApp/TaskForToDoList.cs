@@ -72,6 +72,41 @@ namespace ToDoListWithDBAndADO.TaskApp
                         {
                            checkedListBoxTask.Items.Add(m[i]);
                         }
+                        
+                        MessageBox.Show("This is Task for DataBase");
+                        break;
+                    }
+                default:
+                    {
+
+                        break;
+                    }
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string searchBy = comboBox2.SelectedItem.ToString();
+            switch (searchBy)
+            {
+                case "By Id":
+                    {
+
+                        break;
+                    }
+                case "By TaskDescription":
+                    {
+                        break;
+                    }
+                case "By Completed":
+                    {
+                        break;
+                    }
+                case "All":
+                    {
+                        db.Delete();
+                       
+                        MessageBox.Show("Delete All Value from DataBase ");
                         break;
                     }
                 default:
