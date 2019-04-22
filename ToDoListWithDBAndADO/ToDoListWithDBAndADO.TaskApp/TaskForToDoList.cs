@@ -87,7 +87,7 @@ namespace ToDoListWithDBAndADO.TaskApp
                 case "By TaskDescription":
                     {
                         string taskDesc = textBoxTaskDescription.Text;
-
+                        db.Delete(taskDesc);
                         break;
                     }
                 case "By Completed":

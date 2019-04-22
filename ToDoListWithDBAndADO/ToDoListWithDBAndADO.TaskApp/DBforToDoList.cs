@@ -138,6 +138,40 @@ namespace ToDoListWithDBAndADO.TaskApp
                 }
             }
         }
+        /// <summary>
+        /// Delete DB by TaskDescription  . 
+        /// </summary>
+        public void Delete(string tasdesc)
+        {
+            string deleteQuery = @"DELETE FROM [Task]  Where TaskDescription='"+tasdesc+"'";
+            using (SqlConnection connection = new SqlConnection(conectionString))
+            {
+
+                using (SqlCommand command = new SqlCommand(deleteQuery, connection))
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+        }
+        /// <summary>
+        /// Delete DB by Completed  . 
+        /// </summary>
+        public void Delete(bool Completed)
+        {
+            string deleteQuery = @"DELETE FROM [Task]  Where IsComletid='" + Completed + "'";
+            using (SqlConnection connection = new SqlConnection(conectionString))
+            {
+
+                using (SqlCommand command = new SqlCommand(deleteQuery, connection))
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+        }
         #endregion
     }
 }
