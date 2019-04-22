@@ -32,7 +32,7 @@ namespace ToDoListWithDBAndADO.TaskApp
             ConString = constring;
         }
         #endregion 
-        #region DBforToDoList Insert
+        #region DBforToDoList InsertMethods
         /// <summary>
         /// Insert DB Tasks. 
         /// </summary>

@@ -48,6 +48,7 @@
             // ButtonAddTask
             // 
             this.ButtonAddTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.ButtonAddTask.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ButtonAddTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddTask.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ButtonAddTask.Location = new System.Drawing.Point(454, 100);
@@ -131,7 +132,11 @@
             this.Controls.Add(this.checkedListBoxTask);
             this.Controls.Add(this.ButtonAddTask);
             this.Controls.Add(this.textBoxTaskDescription);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "TaskForToDoList";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ShowIcon = false;
             this.Text = "LoDoList";
             this.ResumeLayout(false);
             this.PerformLayout();
