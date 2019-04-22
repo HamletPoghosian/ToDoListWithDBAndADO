@@ -82,6 +82,33 @@ namespace ToDoListWithDBAndADO.TaskApp
             }
 
         }
+        /// <summary>
+        /// Select DB All Tasks . 
+        /// </summary>
+        public List<MyTask> Select(string taskDesc)
+        {
+            MyTask taskValue;
+            using (SqlConnection connection = new SqlConnection(conectionString))
+            {
+                List<MyTask> tasks = new List<MyTask>();
+                string selectQuery = @"SELECT Id, TaskDescription, IsComletid FROM[Task] WHERE TaskDescription='"+taskDesc+"' ";
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(selectQuery, connection))
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        taskValue = new MyTask();
+                        taskValue.Id = int.Parse(reader[0].ToString());
+                        taskValue.Mywork = reader[1].ToString();
+                        taskValue.Isdone = Boolean.Parse(reader[2].ToString());
+                        tasks.Add(taskValue);
+                    }
+                }
+                return tasks;
+            }
+
+        }
         #endregion
         #region DBforToDoList UpdateMethods
         /// <summary>

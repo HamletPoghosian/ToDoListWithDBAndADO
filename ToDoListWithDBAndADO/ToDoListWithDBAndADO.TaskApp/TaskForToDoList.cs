@@ -48,6 +48,11 @@ namespace ToDoListWithDBAndADO.TaskApp
                     }
                 case "By TaskDescription":
                     {
+                        List<MyTask> m = db.Select(textBoxTaskDescription.Text);
+                        for (int i = 0; i < m.Count; i++)
+                        {
+                            checkedListBoxTask.Items.Add(m[i]);
+                        }
                         break;
                     }
                 case "By Completed":
