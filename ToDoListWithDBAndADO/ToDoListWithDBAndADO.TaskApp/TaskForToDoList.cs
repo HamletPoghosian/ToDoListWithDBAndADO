@@ -23,7 +23,6 @@ namespace ToDoListWithDBAndADO.TaskApp
         {
 
             checkedListBoxTask.Items.Add(textBoxTaskDescription.Text);
-
             db.Insert(new MyTask(textBoxTaskDescription.Text));
             textBoxTaskDescription.Text = string.Empty;
         }
@@ -62,7 +61,7 @@ namespace ToDoListWithDBAndADO.TaskApp
                         {
                            checkedListBoxTask.Items.Add(m[i]);
                         }
-                        
+                       
                         MessageBox.Show("This is Task for DataBase");
                         break;
                     }
@@ -82,21 +81,24 @@ namespace ToDoListWithDBAndADO.TaskApp
             {
                 case "By Id":
                     {
-
+                        
                         break;
                     }
                 case "By TaskDescription":
                     {
+                        string taskDesc = textBoxTaskDescription.Text;
+
                         break;
                     }
                 case "By Completed":
                     {
+
                         break;
                     }
                 case "All":
                     {
                         db.Delete();
-                       
+                        checkedListBoxTask.Items.Clear();
                         MessageBox.Show("Delete All Value from DataBase ");
                         break;
                     }

@@ -47,18 +47,21 @@
             // 
             // ButtonAddTask
             // 
+            this.ButtonAddTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.ButtonAddTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAddTask.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ButtonAddTask.Location = new System.Drawing.Point(454, 100);
             this.ButtonAddTask.Name = "ButtonAddTask";
             this.ButtonAddTask.Size = new System.Drawing.Size(197, 54);
             this.ButtonAddTask.TabIndex = 1;
             this.ButtonAddTask.Text = "Add Task";
-            this.ButtonAddTask.UseVisualStyleBackColor = true;
+            this.ButtonAddTask.UseVisualStyleBackColor = false;
             this.ButtonAddTask.Click += new System.EventHandler(this.ButtonAddTask_Click);
             // 
             // checkedListBoxTask
             // 
             this.checkedListBoxTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkedListBoxTask.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.checkedListBoxTask.FormattingEnabled = true;
             this.checkedListBoxTask.Location = new System.Drawing.Point(36, 164);
             this.checkedListBoxTask.Name = "checkedListBoxTask";
@@ -98,6 +101,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(33, 104);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 13);
@@ -108,6 +112,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label2.Location = new System.Drawing.Point(33, 133);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
