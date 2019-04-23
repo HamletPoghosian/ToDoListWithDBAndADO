@@ -13,6 +13,7 @@ namespace ToDoList.Lib
         private bool isdone;
         private int id;
         #endregion
+
         #region CtorMyTaskClass
         public MyTask()
         {
@@ -25,6 +26,7 @@ namespace ToDoList.Lib
 
         }
         #endregion
+
         #region PropertyMyTaskClass
         public string Mywork
         {
@@ -38,6 +40,7 @@ namespace ToDoList.Lib
         }
         public int Id { get => id; set => id = value; }
         #endregion
+
         public override string ToString()
         {
             return Id+"\t"+Mywork + "\t" + Isdone;

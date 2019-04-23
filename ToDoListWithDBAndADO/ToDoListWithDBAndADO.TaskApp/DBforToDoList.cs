@@ -32,6 +32,7 @@ namespace ToDoListWithDBAndADO.TaskApp
             ConString = constring;
         }
         #endregion 
+
         #region DBforToDoList InsertMethods
         /// <summary>
         /// Insert DB Tasks. 
@@ -54,6 +55,7 @@ namespace ToDoListWithDBAndADO.TaskApp
             }
         }
         #endregion
+
         #region DBforToDoList SelectMethods
         /// <summary>
         /// Select DB All Tasks . 
@@ -110,6 +112,7 @@ namespace ToDoListWithDBAndADO.TaskApp
 
         }
         #endregion
+
         #region DBforToDoList UpdateMethods
         /// <summary>
         /// Update DB Tasks in Id. 
@@ -147,6 +150,7 @@ namespace ToDoListWithDBAndADO.TaskApp
             }
         }
         #endregion
+
         #region DBforToDoList DeleteMethods
         /// <summary>
         /// Delete DB All Tasks  . 
@@ -161,6 +165,7 @@ namespace ToDoListWithDBAndADO.TaskApp
                 {
                     connection.Open();
                     command.ExecuteNonQuery();
+                    
                     connection.Close();
                 }
             }
