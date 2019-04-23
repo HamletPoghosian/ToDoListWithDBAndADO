@@ -157,7 +157,7 @@ namespace ToDoListWithDBAndADO.TaskApp
         /// </summary>
         public void Delete()
         {
-            string deleteQuery = @"DELETE FROM [Task] ";
+            string deleteQuery = @"DELETE FROM Task DBCC CHECKIDENT ('[Task]', RESEED, 0)";
             using (SqlConnection connection = new SqlConnection(conectionString))
             {
 
