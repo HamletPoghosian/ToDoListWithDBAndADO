@@ -21,7 +21,6 @@ namespace ToDoListWithDBAndADO.TaskApp
         #region AddButton InsertDBAddValue
         private void ButtonAddTask_Click(object sender, EventArgs e)
         {
-
             checkedListBoxTask.Items.Add(textBoxTaskDescription.Text);
             db.Insert(new MyTask(textBoxTaskDescription.Text));
             textBoxTaskDescription.Text = string.Empty;
@@ -32,7 +31,7 @@ namespace ToDoListWithDBAndADO.TaskApp
         private void checkedListBoxTask_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             textBoxTaskDescription.Text = checkedListBoxTask.SelectedItem.ToString();
-            string [] myTask = checkedListBoxTask.SelectedItem.ToString().Split('.');
+            string [] myTask = checkedListBoxTask.SelectedItem.ToString().Split('/');
             db.Update(myTask[0]);
             MessageBox.Show("This  Task now IsComletid");
         }
