@@ -43,7 +43,7 @@ namespace ToDoList.Lib
 
         public override string ToString()
         {
-            return Id+"\t"+Mywork + "\t" + Isdone;
+            return Mywork + "." + Isdone;
         }
         public override int GetHashCode()
         {

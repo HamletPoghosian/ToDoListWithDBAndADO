@@ -31,9 +31,10 @@ namespace ToDoListWithDBAndADO.TaskApp
         #region UpdateChechkd Value 
         private void checkedListBoxTask_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            string myTask = checkedListBoxTask.SelectedItem.ToString();
-            textBoxTaskDescription.Text = myTask;
-            db.Update(myTask);
+            textBoxTaskDescription.Text = checkedListBoxTask.SelectedItem.ToString();
+            string [] myTask = checkedListBoxTask.SelectedItem.ToString().Split('.');
+            db.Update(myTask[0]);
+            MessageBox.Show("This  Task now IsComletid");
         }
         #endregion
 
