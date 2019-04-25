@@ -99,8 +99,7 @@ namespace ToDoListWithDBAndADO.TaskApp
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        taskValue = new MyTask();
-                        
+                        taskValue = new MyTask();                        
                         taskValue.Mywork = reader[0].ToString();
                         taskValue.Isdone = Boolean.Parse(reader[1].ToString());
                         tasks.Add(taskValue);
@@ -185,7 +184,6 @@ namespace ToDoListWithDBAndADO.TaskApp
             string deleteQuery = @"DELETE FROM Task DBCC CHECKIDENT ('[Task]', RESEED, 0)";
             using (SqlConnection connection = new SqlConnection(conectionString))
             {
-
                 using (SqlCommand command = new SqlCommand(deleteQuery, connection))
                 {
                     connection.Open();
@@ -203,7 +201,6 @@ namespace ToDoListWithDBAndADO.TaskApp
             string deleteQuery = @"DELETE FROM [Task]  Where TaskDescription='"+tasdesc+"'";
             using (SqlConnection connection = new SqlConnection(conectionString))
             {
-
                 using (SqlCommand command = new SqlCommand(deleteQuery, connection))
                 {
                     connection.Open();
@@ -213,14 +210,13 @@ namespace ToDoListWithDBAndADO.TaskApp
             }
         }
         /// <summary>
-        /// Delete DB by Completed  . 
+        /// Delete DB by Completed   
         /// </summary>
         public void Delete(bool Completed)
         {
             string deleteQuery = @"DELETE FROM [Task]  Where IsComletid='" + Completed + "'";
             using (SqlConnection connection = new SqlConnection(conectionString))
             {
-
                 using (SqlCommand command = new SqlCommand(deleteQuery, connection))
                 {
                     connection.Open();
