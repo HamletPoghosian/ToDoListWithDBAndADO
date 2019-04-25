@@ -58,22 +58,18 @@ namespace ToDoListWithDBAndADO.TaskApp
                 }
                 catch (InvalidCastException )
                 {
-                    MessageBox.Show("Dont INSERT DB for Error");
-                    
+                    MessageBox.Show("Dont INSERT DB for Error");                    
                 }
                 catch (SqlException)
                 {
                     MessageBox.Show("Dont INSERT DB for Error");
-
                 }
                 catch (InvalidOperationException)
                 {
                     MessageBox.Show("Dont INSERT DB for Error");
-
                 }
                 catch (Exception)
                 {
-
                     throw ;
                 }
                 
