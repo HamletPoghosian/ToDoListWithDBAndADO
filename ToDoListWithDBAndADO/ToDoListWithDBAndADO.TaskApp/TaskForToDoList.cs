@@ -31,7 +31,7 @@ namespace ToDoListWithDBAndADO.TaskApp
         private void checkedListBoxTask_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             textBoxTaskDescription.Text = checkedListBoxTask.SelectedItem.ToString();
-            string [] myTask = checkedListBoxTask.SelectedItem.ToString().Split('/');
+            string[] myTask = checkedListBoxTask.SelectedItem.ToString().Split('/');
             db.Update(myTask[0]);
             MessageBox.Show("This  Task now IsComletid");
         }
@@ -43,7 +43,7 @@ namespace ToDoListWithDBAndADO.TaskApp
             string searchBy = comboBox1.SelectedItem.ToString();
             switch (searchBy)
             {
-                
+
                 case "By TaskDescription":
                     {
                         checkedListBoxTask.Items.Clear();
@@ -80,9 +80,9 @@ namespace ToDoListWithDBAndADO.TaskApp
                         List<MyTask> m = db.Select();
                         for (int i = 0; i < m.Count; i++)
                         {
-                           checkedListBoxTask.Items.Add(m[i]);
+                            checkedListBoxTask.Items.Add(m[i]);
                         }
-                       
+
                         MessageBox.Show("This is Task for DataBase");
                         break;
                     }
@@ -103,7 +103,7 @@ namespace ToDoListWithDBAndADO.TaskApp
             {
                 case "By Id":
                     {
-                        
+
                         break;
                     }
                 case "By TaskDescription":
@@ -112,14 +112,19 @@ namespace ToDoListWithDBAndADO.TaskApp
                         db.Delete(taskDesc);
                         break;
                     }
-                case "By Completed":
+                case "Completed Task":
                     {
-
+                        db.Delete(true);
+                        break;
+                    }
+                case "Not Completed Task":
+                    {                       
+                        db.Delete(false);
                         break;
                     }
                 case "All":
                     {
-                        DialogResult deletTask=MessageBox.Show("You Want Delete All Task","Delete Task",MessageBoxButtons.YesNo);
+                        DialogResult deletTask = MessageBox.Show("You Want Delete All Task", "Delete Task", MessageBoxButtons.YesNo);
                         if (deletTask == DialogResult.Yes)
                         {
                             db.Delete();

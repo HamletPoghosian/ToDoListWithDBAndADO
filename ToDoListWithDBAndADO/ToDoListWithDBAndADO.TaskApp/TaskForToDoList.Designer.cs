@@ -89,7 +89,8 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "By TaskDescription",
-            "By Completed",
+            "Completed Task",
+            "Not Completed Task",
             "All"});
             this.comboBox2.Location = new System.Drawing.Point(104, 133);
             this.comboBox2.Name = "comboBox2";
