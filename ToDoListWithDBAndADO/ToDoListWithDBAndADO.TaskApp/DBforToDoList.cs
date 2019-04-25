@@ -111,6 +111,32 @@ namespace ToDoListWithDBAndADO.TaskApp
             }
 
         }
+        /// <summary>
+        /// Select DB IsComletid  or NotComletid Tasks in Int Value  . 
+        /// 0-IsComletid  1-Not Comletid     </summary>
+        public List<MyTask> Select(int taskDesc)
+        {
+            MyTask taskValue;
+            using (SqlConnection connection = new SqlConnection(conectionString))
+            {
+                List<MyTask> tasks = new List<MyTask>();
+                string selectQuery = @"SELECT  TaskDescription, IsComletid FROM[Task] WHERE IsComletid='" + taskDesc + "' ";
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(selectQuery, connection))
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        taskValue = new MyTask();                       
+                        taskValue.Mywork = reader[1].ToString();
+                        taskValue.Isdone = Boolean.Parse(reader[2].ToString());
+                        tasks.Add(taskValue);
+                    }
+                }
+                return tasks;
+            }
+
+        }
         #endregion
 
         #region DBforToDoList UpdateMethods

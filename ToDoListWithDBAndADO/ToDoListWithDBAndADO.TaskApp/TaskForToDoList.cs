@@ -70,7 +70,7 @@ namespace ToDoListWithDBAndADO.TaskApp
                     }
                 default:
                     {
-                        MessageBox.Show("");
+                        MessageBox.Show("Write Textbox and Select Value in DataBase");
                         break;
                     }
             }
