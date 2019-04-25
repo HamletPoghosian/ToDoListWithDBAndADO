@@ -19,7 +19,7 @@ namespace ToDoListWithDBAndADO.TaskApp
             {
                 return conectionString;
             }
-            set
+             set
             {
                 conectionString = value;
             }
@@ -56,8 +56,16 @@ namespace ToDoListWithDBAndADO.TaskApp
                         connection.Close();
                     }
                 }
-                catch (InvalidCastException) { }
-                catch (SqlException) { }
+                catch (InvalidCastException )
+                {
+                    MessageBox.Show("Dont INSERT DB for Error");
+                    
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Dont INSERT DB for Error");
+
+                }
                 catch (InvalidOperationException)
                 {
                     MessageBox.Show("Dont INSERT DB for Error");
@@ -66,9 +74,9 @@ namespace ToDoListWithDBAndADO.TaskApp
                 catch (Exception)
                 {
 
-                    throw;
+                    throw ;
                 }
-
+                
             }
         }
         #endregion
@@ -135,14 +143,14 @@ namespace ToDoListWithDBAndADO.TaskApp
             using (SqlConnection connection = new SqlConnection(conectionString))
             {
                 List<MyTask> tasks = new List<MyTask>();
-                string selectQuery = @"SELECT  TaskDescription, IsComletid FROM[Task] WHERE TaskDescription='" + taskDesc + "' ";
+                string selectQuery = @"SELECT  TaskDescription, IsComletid FROM[Task] WHERE TaskDescription='"+taskDesc+"' ";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(selectQuery, connection))
                 {
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        taskValue = new MyTask();
+                        taskValue = new MyTask();                        
                         taskValue.Mywork = reader[0].ToString();
                         taskValue.Isdone = Boolean.Parse(reader[1].ToString());
                         tasks.Add(taskValue);
@@ -168,7 +176,7 @@ namespace ToDoListWithDBAndADO.TaskApp
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        taskValue = new MyTask();
+                        taskValue = new MyTask();                       
                         taskValue.Mywork = reader[0].ToString();
                         taskValue.Isdone = Boolean.Parse(reader[1].ToString());
                         tasks.Add(taskValue);
@@ -183,7 +191,7 @@ namespace ToDoListWithDBAndADO.TaskApp
         /// <summary>
         /// Update DB Tasks in Id. 
         /// </summary>
-        public void Update(int usersId, MyTask taskDesc)
+        public void Update(int usersId,MyTask taskDesc)
         {
             string updateQuery = @"UPDATE [Task] SET TaskDescription=@TaskDescription,IsComletid=@IsComletid Where Id = '" + usersId + "'";
             using (SqlConnection connection = new SqlConnection(conectionString))
@@ -208,7 +216,7 @@ namespace ToDoListWithDBAndADO.TaskApp
             {
                 using (SqlCommand command = new SqlCommand(updateQuery, connection))
                 {
-                    connection.Open();
+                    connection.Open();                    
                     command.Parameters.Add(new SqlParameter("IsComletid", true));
                     command.ExecuteNonQuery();
                     connection.Close();
@@ -230,7 +238,7 @@ namespace ToDoListWithDBAndADO.TaskApp
                 {
                     connection.Open();
                     command.ExecuteNonQuery();
-
+                    
                     connection.Close();
                 }
             }
@@ -240,7 +248,7 @@ namespace ToDoListWithDBAndADO.TaskApp
         /// </summary>
         public void Delete(string tasdesc)
         {
-            string deleteQuery = @"DELETE FROM [Task]  Where TaskDescription='" + tasdesc + "'";
+            string deleteQuery = @"DELETE FROM [Task]  Where TaskDescription='"+tasdesc+"'";
             using (SqlConnection connection = new SqlConnection(conectionString))
             {
                 using (SqlCommand command = new SqlCommand(deleteQuery, connection))
