@@ -66,17 +66,16 @@ namespace ToDoListWithDBAndADO.TaskApp
             using (SqlConnection connection = new SqlConnection(conectionString))
             {
                 List<MyTask> tasks = new List<MyTask>();
-                string selectQuery = @"SELECT Id, TaskDescription, IsComletid FROM[Task]";
+                string selectQuery = @"SELECT TaskDescription, IsComletid FROM[Task]";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(selectQuery, connection))
                 {
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        taskValue = new MyTask();
-                        taskValue.Id = int.Parse(reader[0].ToString());
-                        taskValue.Mywork = reader[1].ToString();
-                        taskValue.Isdone =Boolean.Parse(reader[2].ToString());
+                        taskValue = new MyTask();                        
+                        taskValue.Mywork = reader[0].ToString();
+                        taskValue.Isdone =Boolean.Parse(reader[1].ToString());
                         tasks.Add(taskValue);
                     }
                 }
@@ -85,7 +84,7 @@ namespace ToDoListWithDBAndADO.TaskApp
 
         }
         /// <summary>
-        /// Select DB All Tasks . 
+        /// Select DB Tasks by TaskDescription . 
         /// </summary>
         public List<MyTask> Select(string taskDesc)
         {
@@ -93,7 +92,7 @@ namespace ToDoListWithDBAndADO.TaskApp
             using (SqlConnection connection = new SqlConnection(conectionString))
             {
                 List<MyTask> tasks = new List<MyTask>();
-                string selectQuery = @"SELECT Id, TaskDescription, IsComletid FROM[Task] WHERE TaskDescription='"+taskDesc+"' ";
+                string selectQuery = @"SELECT  TaskDescription, IsComletid FROM[Task] WHERE TaskDescription='"+taskDesc+"' ";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(selectQuery, connection))
                 {
@@ -101,9 +100,9 @@ namespace ToDoListWithDBAndADO.TaskApp
                     while (reader.Read())
                     {
                         taskValue = new MyTask();
-                        taskValue.Id = int.Parse(reader[0].ToString());
-                        taskValue.Mywork = reader[1].ToString();
-                        taskValue.Isdone = Boolean.Parse(reader[2].ToString());
+                        
+                        taskValue.Mywork = reader[0].ToString();
+                        taskValue.Isdone = Boolean.Parse(reader[1].ToString());
                         tasks.Add(taskValue);
                     }
                 }
@@ -113,14 +112,14 @@ namespace ToDoListWithDBAndADO.TaskApp
         }
         /// <summary>
         /// Select DB IsComletid  or NotComletid Tasks in Int Value  . 
-        /// 0-IsComletid  1-Not Comletid     </summary>
-        public List<MyTask> Select(int taskDesc)
+        /// true-IsComletid  false-Not Comletid     </summary>
+        public List<MyTask> Select(bool taskComletidt)
         {
             MyTask taskValue;
             using (SqlConnection connection = new SqlConnection(conectionString))
             {
                 List<MyTask> tasks = new List<MyTask>();
-                string selectQuery = @"SELECT  TaskDescription, IsComletid FROM[Task] WHERE IsComletid='" + taskDesc + "' ";
+                string selectQuery = @"SELECT  TaskDescription, IsComletid FROM[Task] WHERE IsComletid='" + taskComletidt + "' ";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(selectQuery, connection))
                 {
@@ -128,8 +127,8 @@ namespace ToDoListWithDBAndADO.TaskApp
                     while (reader.Read())
                     {
                         taskValue = new MyTask();                       
-                        taskValue.Mywork = reader[1].ToString();
-                        taskValue.Isdone = Boolean.Parse(reader[2].ToString());
+                        taskValue.Mywork = reader[0].ToString();
+                        taskValue.Isdone = Boolean.Parse(reader[1].ToString());
                         tasks.Add(taskValue);
                     }
                 }

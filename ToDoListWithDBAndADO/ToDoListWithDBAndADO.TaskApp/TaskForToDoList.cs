@@ -46,6 +46,7 @@ namespace ToDoListWithDBAndADO.TaskApp
                 
                 case "By TaskDescription":
                     {
+                        checkedListBoxTask.Items.Clear();
                         List<MyTask> m = db.Select(textBoxTaskDescription.Text);
                         for (int i = 0; i < m.Count; i++)
                         {
@@ -53,12 +54,29 @@ namespace ToDoListWithDBAndADO.TaskApp
                         }
                         break;
                     }
-                case "By Completed":
+                case "Completed Task":
                     {
+                        checkedListBoxTask.Items.Clear();
+                        List<MyTask> m = db.Select(true);
+                        for (int i = 0; i < m.Count; i++)
+                        {
+                            checkedListBoxTask.Items.Add(m[i]);
+                        }
+                        break;
+                    }
+                case "Not Completed Task":
+                    {
+                        checkedListBoxTask.Items.Clear();
+                        List<MyTask> m = db.Select(false);
+                        for (int i = 0; i < m.Count; i++)
+                        {
+                            checkedListBoxTask.Items.Add(m[i]);
+                        }
                         break;
                     }
                 case "All":
                     {
+                        checkedListBoxTask.Items.Clear();
                         List<MyTask> m = db.Select();
                         for (int i = 0; i < m.Count; i++)
                         {
