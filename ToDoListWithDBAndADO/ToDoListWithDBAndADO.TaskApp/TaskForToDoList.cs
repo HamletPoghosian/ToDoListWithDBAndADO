@@ -119,9 +119,17 @@ namespace ToDoListWithDBAndADO.TaskApp
                     }
                 case "All":
                     {
-                        db.Delete();
-                        checkedListBoxTask.Items.Clear();
-                        MessageBox.Show("Delete All Value from DataBase ");
+                        DialogResult deletTask=MessageBox.Show("You Want Delete All Task",,MessageBoxButtons.YesNo);
+                        if (deletTask == DialogResult.Yes)
+                        {
+                            db.Delete();
+                            checkedListBoxTask.Items.Clear();
+                            MessageBox.Show("Delete All Value from DataBase ");
+                        }
+                        else
+                        {
+                            break;
+                        }
                         break;
                     }
                 default:
