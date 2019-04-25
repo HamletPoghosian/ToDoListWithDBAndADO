@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using ToDoList.Lib;
 
 namespace ToDoListWithDBAndADO.TaskApp
@@ -41,17 +42,41 @@ namespace ToDoListWithDBAndADO.TaskApp
         {
             using (SqlConnection connection = new SqlConnection(ConString))
             {
-                string insertQuery = @"INSERT INTO [Task] VALUES(@TaskDescription,@IsComletid)";
-                using (SqlCommand command = new SqlCommand(insertQuery, connection))
+                try
                 {
-                    connection.Open();
-                    
-                    command.Parameters.Add(new SqlParameter("TaskDescription", task.Mywork));
-                    command.Parameters.Add(new SqlParameter("IsComletid", task.Isdone));
-                   
-                    command.ExecuteNonQuery();
-                    connection.Close();
+                    string insertQuery = @"INSERT INTO [Task] VALUES(@TaskDescription,@IsComletid)";
+                    using (SqlCommand command = new SqlCommand(insertQuery, connection))
+                    {
+                        connection.Open();
+
+                        command.Parameters.Add(new SqlParameter("TaskDescription", task.Mywork));
+                        command.Parameters.Add(new SqlParameter("IsComletid", task.Isdone));
+
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                    }
                 }
+                catch (InvalidCastException )
+                {
+                    MessageBox.Show("Dont INSERT DB for Error");
+                    
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Dont INSERT DB for Error");
+
+                }
+                catch (InvalidOperationException)
+                {
+                    MessageBox.Show("Dont INSERT DB for Error");
+
+                }
+                catch (Exception)
+                {
+
+                    throw ;
+                }
+                
             }
         }
         #endregion
@@ -67,19 +92,45 @@ namespace ToDoListWithDBAndADO.TaskApp
             {
                 List<MyTask> tasks = new List<MyTask>();
                 string selectQuery = @"SELECT TaskDescription, IsComletid FROM[Task]";
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(selectQuery, connection))
+                try
                 {
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(selectQuery, connection))
                     {
-                        taskValue = new MyTask();                        
-                        taskValue.Mywork = reader[0].ToString();
-                        taskValue.Isdone =Boolean.Parse(reader[1].ToString());
-                        tasks.Add(taskValue);
+
+
+                        SqlDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            taskValue = new MyTask();
+                            taskValue.Mywork = reader[0].ToString();
+                            taskValue.Isdone = Boolean.Parse(reader[1].ToString());
+                            tasks.Add(taskValue);
+                        }
                     }
+                    return tasks;
                 }
-                return tasks;
+                catch (InvalidCastException)
+                {
+                    MessageBox.Show("Dont INSERT DB for Error");
+                    return tasks;
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Dont INSERT DB for Error");
+                    return tasks;
+                }
+                catch (InvalidOperationException)
+                {
+                    MessageBox.Show("Dont INSERT DB for Error");
+                    return tasks;
+
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
             }
 
         }
