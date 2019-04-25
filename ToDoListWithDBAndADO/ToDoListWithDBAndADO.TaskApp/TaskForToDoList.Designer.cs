@@ -74,7 +74,6 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "By Id",
             "By TaskDescription",
             "By Completed",
             "All"});
@@ -88,7 +87,6 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            "By Id",
             "By TaskDescription",
             "By Completed",
             "All"});

@@ -27,6 +27,7 @@ namespace ToDoListWithDBAndADO.TaskApp
             textBoxTaskDescription.Text = string.Empty;
         }
         #endregion
+
         #region UpdateChechkd Value 
         private void checkedListBoxTask_ItemCheck(object sender, ItemCheckEventArgs e)
         {
@@ -35,17 +36,14 @@ namespace ToDoListWithDBAndADO.TaskApp
             db.Update(myTask);
         }
         #endregion
+
         #region ComboBoxSearch ComboBoxSearchEvent
         private void comboBox1_TextChanged(object sender, EventArgs e)
         {
             string searchBy = comboBox1.SelectedItem.ToString();
             switch (searchBy)
             {
-                case "By Id":
-                    {
-
-                        break;
-                    }
+                
                 case "By TaskDescription":
                     {
                         List<MyTask> m = db.Select(textBoxTaskDescription.Text);
@@ -72,12 +70,13 @@ namespace ToDoListWithDBAndADO.TaskApp
                     }
                 default:
                     {
-
+                        MessageBox.Show("");
                         break;
                     }
             }
         }
         #endregion
+
         #region ComboBoxDelete ComboBoxDeleteEvent
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
