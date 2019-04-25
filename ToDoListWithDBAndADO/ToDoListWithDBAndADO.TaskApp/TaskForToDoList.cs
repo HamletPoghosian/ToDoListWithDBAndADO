@@ -119,7 +119,7 @@ namespace ToDoListWithDBAndADO.TaskApp
                     }
                 case "All":
                     {
-                        DialogResult deletTask=MessageBox.Show("You Want Delete All Task",,MessageBoxButtons.YesNo);
+                        DialogResult deletTask=MessageBox.Show("You Want Delete All Task","Delete Task",MessageBoxButtons.YesNo);
                         if (deletTask == DialogResult.Yes)
                         {
                             db.Delete();
