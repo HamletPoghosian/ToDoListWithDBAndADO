@@ -22,6 +22,7 @@ namespace ToDoListWithDBAndADO.TaskApp
         private void ButtonAddTask_Click(object sender, EventArgs e)
         {
             checkedListBoxTask.Items.Add(textBoxTaskDescription.Text);
+            checkedListBoxTask.ForeColor = Color.DarkGreen;
             db.Insert(new MyTask(textBoxTaskDescription.Text));
             textBoxTaskDescription.Text = string.Empty;
         }

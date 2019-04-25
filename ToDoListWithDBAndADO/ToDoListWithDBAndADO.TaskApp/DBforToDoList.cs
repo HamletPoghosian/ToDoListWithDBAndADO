@@ -133,7 +133,6 @@ namespace ToDoListWithDBAndADO.TaskApp
                 }
                 return tasks;
             }
-
         }
         #endregion
 
