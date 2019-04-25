@@ -26,7 +26,6 @@ namespace ToDoListWithDBAndADO.TaskApp
         }
         public DBforToDoList()
         {
-
         }
         public DBforToDoList(string constring)
         {
@@ -48,10 +47,8 @@ namespace ToDoListWithDBAndADO.TaskApp
                     using (SqlCommand command = new SqlCommand(insertQuery, connection))
                     {
                         connection.Open();
-
                         command.Parameters.Add(new SqlParameter("TaskDescription", task.Mywork));
                         command.Parameters.Add(new SqlParameter("IsComletid", task.Isdone));
-
                         command.ExecuteNonQuery();
                         connection.Close();
                     }
