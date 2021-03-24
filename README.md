@@ -6,7 +6,9 @@
 ## Delete Update And Search from DB
 ![GitHub Logo](https://cdn.dribbble.com/users/1581195/screenshots/3695151/delete.gif)
 ### DataBase Creating Code
+
 ~~~SQL
+
 CREATE TABLE Task
 (
 	
